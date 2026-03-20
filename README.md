@@ -31,6 +31,7 @@ This will:
 | Tool | macOS | Arch |
 |------|-------|------|
 | [Ghostty](https://ghostty.org) | `brew install --cask ghostty` | `pacman -S ghostty` |
+| [1Password](https://1password.com) | `brew install --cask 1password` | `yay -S 1password` |
 
 ## Project Structure
 
@@ -39,6 +40,7 @@ init.sh              # Entry point (curl this to bootstrap)
 scripts/
   utils.sh           # Shared helpers (OS detection, logging)
   ghostty.sh         # Installs Ghostty terminal
+  1password.sh       # Installs 1Password
 ```
 
 ## Adding a New Tool
