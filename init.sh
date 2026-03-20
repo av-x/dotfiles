@@ -7,6 +7,7 @@ DOTFILES_DIR="$HOME/.dotfiles"
 
 source <(curl -fsSL "$DOTFILES_REPO_RAW/scripts/utils.sh")
 
+# Homebrew's installer also installs Xcode Command Line Tools (git, clang, make, etc.)
 install_homebrew() {
   if command -v brew &>/dev/null; then
     info "Homebrew already installed"
@@ -36,6 +37,22 @@ install_git() {
   info "git installed"
 }
 
+install_yay() {
+  if command -v yay &>/dev/null; then
+    info "yay already installed"
+    return
+  fi
+  info "Installing yay..."
+  # base-devel provides makepkg, required to build AUR packages
+  sudo pacman -S --needed --noconfirm base-devel
+  local tmpdir
+  tmpdir="$(mktemp -d)"
+  git clone https://aur.archlinux.org/yay.git "$tmpdir/yay"
+  (cd "$tmpdir/yay" && makepkg -si --noconfirm)
+  rm -rf "$tmpdir"
+  info "yay installed"
+}
+
 clone_dotfiles() {
   if [[ -d "$DOTFILES_DIR/.git" ]]; then
     info "Dotfiles dir already cloned, pulling latest..."
@@ -59,10 +76,15 @@ main() {
   esac
 
   install_git "$os"
+
+  case "$os" in
+    arch) install_yay ;;
+  esac
   clone_dotfiles
 
   info "Running install scripts..."
   bash "$DOTFILES_DIR/scripts/ghostty.sh"
+  bash "$DOTFILES_DIR/scripts/1password.sh"
 
   info "Done!"
 }
