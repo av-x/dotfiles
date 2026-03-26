@@ -1,0 +1,20 @@
+Bun extracted to: C:\Users\sdf\runner\apps\electron\vendor\bun\bun.exe
+Waiting for file handles to release...
+Downloading PortableGit v2.47.1.windows.2 for Windows x64...
+Downloading from https://github.com/git-for-windows/git/releases/download/v2.47.1.windows.2/PortableGit-2.47.1.2-64-bit.7z.exe...
+Verifying checksum...
+Checksum verified successfully
+Extracting PortableGit...
+PortableGit extract command: "C:\Users\sdf\AppData\Local\Temp\portablegit-download-521120838\PortableGit-2.47.1.2-64-bit.7z.exe" -y -gm2 -InstallPath="C:\\Users\\sdf\\runner\\apps\\electron\\vendor\\portable-git"
+PortableGit directory contents after extraction:
+  (directory is empty)
+bash.exe not found after extraction at
+C:\Users\sdf\runner\apps\electron\vendor\portable-git\bin\bash.exe
+At C:\Users\sdf\runner\apps\electron\scripts\build-win.ps1:246 char:41
++ ... BashExe)) { throw "bash.exe not found after extraction at $GitBashExe
+...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (bash.exe not fo...it\bin\b
+   ash.exe:String) [], RuntimeException
+    + FullyQualifiedErrorId : bash.exe not found after extraction at C:\Use
+   rs\sdf\runner\apps\electron\vendor\portable-git\bin\bash.exe
